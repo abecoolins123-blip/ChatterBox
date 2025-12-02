@@ -6,7 +6,7 @@ A real-time group chat application with multiple chat rooms, video/audio calling
 
 - **Real-time Messaging**: Send and receive messages instantly
 - **Multiple Chat Rooms**: Create password-protected chat rooms
-- **Video & Audio Calling**: Password-protected video chat (password: 411952)
+- **Video & Audio Calling**: Password-protected video chat (password-protected)
 - **Profile Pictures**: Upload and display user profile pictures
 - **Online Status**: See who's online in real-time
 - **Friend System**: Add and manage friends
@@ -35,9 +35,6 @@ If you remix this Replit and want all remixes to share the same chat server:
 
 Now all remixes will connect to the shared server and can chat together!
 
-### Default Passwords
-- **Video Chat**: 411952
-- **Clear Chat**: 411952
 
 ## Technologies
 
