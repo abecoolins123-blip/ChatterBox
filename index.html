@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Group Chat App</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app-wrapper">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Users Online</h3>
+    </div>
+    <input type="text" id="usersSearchInput" placeholder="Search users..." class="users-search" />
+    <div id="usersList" class="users-list"></div>
+  </div>
+  <div class="main-content">
+<div class="chat-container">
+  <div class="tabs-bar">
+    <div class="tabs-container">
+      <div class="tab active" data-chatbox-id="default">
+        <span class="tab-title">Group Chat</span>
+      </div>
+    </div>
+    <div class="header-buttons">
+      <button id="findChatBtn" class="header-btn find-chat-btn" title="Find a chat room">🔍</button>
+      <button id="newChatboxBtn" class="header-btn new-chatbox-btn" title="Create new room">🔒</button>
+      <button id="videoBtn" class="header-btn video-btn" title="Video chat">📹</button>
+      <button id="clearChatBtn" class="header-btn clear-chat-btn" title="Clear messages">🗑️</button>
+    </div>
+  </div>
+  
+  <div class="chat-header">
+    <h2 id="chatboxTitle">Group Chat</h2>
+  </div>
+  
+  <div id="content-area" class="content-area">
+  
+  <!-- Chat Content -->
+  <div id="chat-content" class="tab-content active" data-content-id="default">
+    <div id="onlineUsers" class="online-users">
+      <span class="online-icon">●</span> <strong><span id="onlineCount">1</span> online</strong>
+    </div>
+    
+    <div id="chat-box" class="chat-box"></div>
+    <div id="typingIndicator" class="typing-indicator"></div>
+    
+    <div class="profile-section">
+      <div class="profile-wrapper">
+        <div id="profilePreview" class="profile-preview">👤</div>
+        <input type="file" id="profilePic" accept="image/*" class="profile-input" title="Upload profile picture" />
+      </div>
+    </div>
+    
+    <div class="input-area">
+      <input type="text" id="name" placeholder="Your name" class="name-input" />
+      <input type="text" id="message" placeholder="Type a message..." class="message-input" />
+      <button id="sendBtn" class="send-btn">Send</button>
+    </div>
+  </div>
+  
+  <!-- Video Chat Content -->
+  <div id="video-content" class="tab-content" data-content-id="video">
+    <div class="video-status" id="videoStatus">Connecting...</div>
+    <div class="video-container" id="videoContainer"></div>
+    <div class="video-controls">
+      <button class="video-btn-control btn-start" id="startBtn">Start Camera & Mic</button>
+      <button class="video-btn-control btn-toggle" id="cameraBtn">Camera Off</button>
+      <button class="video-btn-control btn-toggle" id="micBtn">Mic Off</button>
+      <button class="video-btn-control btn-stop" id="stopBtn">End Call</button>
+    </div>
+  </div>
+</div>
+
+<!-- Video Chat Password Modal -->
+<div id="passwordModal" class="password-modal">
+  <div class="password-modal-content">
+    <h2>Video Chat Password</h2>
+    <p>Enter the password to access video chat:</p>
+    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <div class="password-error" id="passwordError"></div>
+    <div class="password-buttons">
+      <button id="passwordSubmitBtn" class="password-btn-submit">Enter</button>
+      <button id="passwordCancelBtn" class="password-btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Find Chatbox Modal -->
+<div id="findChatModal" class="password-modal">
+  <div class="password-modal-content">
+    <h2>Find & Join Chat Room</h2>
+    <p>Enter the room details:</p>
+    <input type="text" id="findChatNameInput" placeholder="Room name (optional)" />
+    <input type="password" id="findChatPasswordInput" placeholder="Enter password" />
+    <div class="password-error" id="findChatError"></div>
+    <div class="password-buttons">
+      <button id="findChatSubmitBtn" class="password-btn-submit">Join</button>
+      <button id="findChatCancelBtn" class="password-btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Chatbox Modal -->
+<div id="newChatboxModal" class="password-modal">
+  <div class="password-modal-content">
+    <h2>Create New Chat Room</h2>
+    <p>Enter a password for this room:</p>
+    <input type="text" id="chatboxNameInput" placeholder="Room name (optional)" />
+    <input type="password" id="newChatboxPasswordInput" placeholder="Enter password" />
+    <div class="password-error" id="newChatboxError"></div>
+    <div class="password-buttons">
+      <button id="newChatboxSubmitBtn" class="password-btn-submit">Create</button>
+      <button id="newChatboxCancelBtn" class="password-btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Clear Chat Password Modal -->
+<div id="clearChatPasswordModal" class="password-modal">
+  <div class="password-modal-content">
+    <h2>Clear Chat Password</h2>
+    <p>Enter the password to clear all messages:</p>
+    <input type="password" id="clearChatPasswordInput" placeholder="Enter password" />
+    <div class="password-error" id="clearChatPasswordError"></div>
+    <div class="password-buttons">
+      <button id="clearChatPasswordSubmitBtn" class="password-btn-submit">Enter</button>
+      <button id="clearChatPasswordCancelBtn" class="password-btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- User Profile Modal -->
+<div id="userProfileModal" class="password-modal">
+  <div class="password-modal-content">
+    <div class="user-profile-header">
+      <h2 id="userProfileName">User</h2>
+      <div class="profile-actions">
+        <button id="addFriendBtn" class="add-friend-btn" title="Add as friend">➕</button>
+        <button id="closeProfileBtn" class="close-btn">&times;</button>
+      </div>
+    </div>
+    <div class="user-profile-content">
+      <div class="user-status-info">
+        <span class="online-dot">●</span>
+        <span id="userStatusText">Online</span>
+      </div>
+      <div id="friendStatus" class="friend-status"></div>
+      <div class="user-chatrooms-section">
+        <h3>Chat Rooms Created</h3>
+        <div id="userChatroomsList" class="user-chatrooms-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="video-chat.js"></script>
+  </div>
+</div>
+</body>
+</html>
