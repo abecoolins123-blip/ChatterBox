@@ -13,14 +13,6 @@ A real-time group chat application with multiple chat rooms, video/audio calling
 - **Dark Theme**: Green/red color scheme
 - **Tab-based UI**: Manage multiple chat rooms and video calls in tabs
 
-## Getting Started
-
-### Run Locally
-```bash
-npm install
-npm start
-```
-
 
 ### Share Chat Across Remixes WITHOUT PUBLISHING!!!
 
