@@ -1,4 +1,4 @@
-# Group Chat App
+# ChatterBox
 
 A real-time group chat application with multiple chat rooms, video/audio calling, and friend system.
 
