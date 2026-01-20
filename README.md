@@ -21,24 +21,20 @@ npm install
 npm start
 ```
 
-The app will run on `http://localhost:5000`
 
-### Share Chat Across Remixes
+### Share Chat Across Remixes WITHOUT PUBLISHING!!!
 
-If you remix this Replit and want all remixes to share the same chat server:
 
-1. Choose one Replit instance to be your shared chat server
-2. Get its URL (e.g., `your-repl-name.replit.dev`)
-3. In each other remix, set the environment variable:
-   - `CHAT_SERVER_URL=your-repl-name.replit.dev`
-4. Redeploy each remix
+1. Remix it here: (https://replit.com/@abecoolins123/ChatterBox?v=1)
+2. Get its Dev URL. (e.g., `your-repl-name.replit.dev` or maybe something like that)
+3. Share the Dev URL to others you would like to chat with.
 
 Now all remixes will connect to the shared server and can chat together!
 
 
 ## Technologies
 
-- **Frontend**: Vanilla JavaScript, HTML5, CSS3
+- **Frontend**: JavaScript, HTML5, CSS3
 - **Backend**: Node.js, Express, WebSocket
 - **Real-time Communication**: WebSocket (ws)
 - **Video/Audio**: WebRTC
@@ -49,3 +45,4 @@ Now all remixes will connect to the shared server and can chat together!
 - `public/script.js` - Main chat functionality and UI
 - `public/video-chat.js` - Video/audio call handling
 - `public/style.css` - Styling
+
